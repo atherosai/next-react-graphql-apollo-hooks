@@ -18,6 +18,7 @@ Even though that the starter kit should work with older `Node` versions, I would
 
 ## Technologies
 
+* Next.js
 * React
 * GraphQL (Apollo server)
 * Apollo client
@@ -32,6 +33,7 @@ NODE_ENV=development
 CUSTOM_ENV=local
 PORT=3000
 API_URL=http://localhost:3000/graphql
+HOST=http://localhost:3000
 ```
 
 ## Security and audit
