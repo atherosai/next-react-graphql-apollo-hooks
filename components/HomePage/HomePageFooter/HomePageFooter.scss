@@ -1,0 +1,105 @@
+@import "../../../theme/variables.scss";
+
+.Footer {
+  clear: both;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+  margin: auto;
+  font-size: 16px;
+  a {
+    font-size: 14px;
+    color: $tertiary-color !important;
+    &:hover {
+      color: $primary-color !important;
+    }
+  }
+  &__TwitterFollow {
+    margin-top: 10px;
+  }
+  position: relative;
+  z-index: 1;
+  &__Row {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    min-height: 260px;
+    flex-wrap: wrap;
+  }
+  &__SocialMedia {
+    display: flex;
+    flex-wrap: wrap;
+    a {
+      font-size: 20px;
+    }
+    &__Link {
+      padding-right: 10px;
+      font-size: 24px;
+      @media (max-width: $breakpoint-mobile) {
+        padding: 5px;
+        font-size: 26px;
+      }
+    }
+  }
+  &__CompanyInfo {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+    height: 60px;
+  }
+  &__Column {
+    color: $tertiary-color;
+    max-width: 220px;
+    display: inline-block;
+    padding-left: 25px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    a {
+      color: $tertiary-color;
+      line-height: 35px;
+    }
+    :global(.anticon) {
+      font-size: 20px;
+      color: $tertiary-color;
+      margin: 0 5px 5px 0;
+      &:hover {
+        font-size: 20px;
+        color: $primary-color;
+        margin: 0 5px 5px 0;
+      }
+    }
+  }
+  &__Wrapper {
+    margin: auto;
+    min-height: 220px;
+
+    max-width: 1000px;
+    display: block;
+    padding: 0;
+  }
+  &__Bottom {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      text-transform: uppercase;
+      margin-right: 10px;
+      height: 25px;
+    }
+  }
+  &__Headline {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  &__Logo {
+    height: 120px;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+}

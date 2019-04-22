@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://graphqlmastery.com/sitemap.xml

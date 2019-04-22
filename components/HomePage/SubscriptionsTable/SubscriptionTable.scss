@@ -1,0 +1,18 @@
+@import "../../../theme/variables.scss";
+
+.SubscriptionTable {
+    &__Header {
+        background-color: $secondary-color;
+        color: white;
+        line-height: 40px;
+    }
+    &__Row {
+        line-height: 35px;
+    }
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    text-align: center;
+    max-width: 400px;
+}
+

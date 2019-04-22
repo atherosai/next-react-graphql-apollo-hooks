@@ -1,0 +1,117 @@
+@import "../../../theme/variables.scss";
+
+.Carousel {
+  position: relative;
+  height: 700px;
+  display: flex;
+
+
+  &__TechnologyStack {
+    margin-top: 15px;
+    text-align: center;
+    color: white !important;
+  }
+
+  &__Technology {
+    margin-right: 40px;
+    line-height: 80px;
+    font-size: 65px;
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 55px;
+    }
+  }
+  &__PoweredBy {
+    display: flex;
+    height: 60px;
+    color: white;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__Footer {
+    display: flex;
+    margin-top: -45px;
+    justify-content: space-between;
+    @media (max-width: $breakpoint-mobile) {
+      justify-content: center;
+    }
+  }
+  &__SocialMedia {
+    display: flex;
+    &__Link {
+      margin-right: 13px;
+      a {
+        font-size: 24px;
+        color: white !important;
+        -webkit-transition: color .3s ease-out;
+        -moz-transition: color .3s ease-out;
+        -o-transition: color .3s ease-out;
+        transition: color .3s ease-out;
+        &:hover {
+          color: $primary-color !important;
+        }
+      }
+    }
+  }
+
+  &__GraphQLMasteryLogo {
+    width: 100%;
+  }
+  &__LeftColumn {
+    float: left;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    flex-wrap: wrap;
+    @media (max-width: $breakpoint-mobile) {
+      width: 100%;
+    }
+  }
+  &__RightColumn {
+    width: 30%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    @media (max-width: $breakpoint-mobile) {
+      display: none;
+    }
+  }
+  &__Wrapper {
+    position: relative;
+    padding: 15px;
+    height: 100%;
+    text-align: left;
+    margin: auto;
+    max-width: 1000px;
+    display: block;
+  }
+
+  padding-bottom: 30px;
+
+  background-color: $secondary-color;
+
+  &__Row {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__IconDown {
+    cursor: pointer;
+    position: relative;
+    font-size: 50px;
+    color: white !important;
+    @media (max-width: $breakpoint-mobile) {
+      display: none;
+    }
+  }
+}

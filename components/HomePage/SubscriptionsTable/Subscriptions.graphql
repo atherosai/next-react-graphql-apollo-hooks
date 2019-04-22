@@ -1,0 +1,6 @@
+query Subscriptions {
+    subscriptions {
+        id
+        email
+    }
+}

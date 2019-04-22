@@ -1,0 +1,35 @@
+{
+   "env": {
+     "browser": true,
+     "es6": true,
+     "node": true
+   },
+   "parser": "babel-eslint",
+   "parserOptions": {
+     "ecmaVersion": 8,
+     "ecmaFeatures": {
+       "modules": true,
+       "arrowFunctions": true,
+       "classes": true
+     }
+   },
+   "extends": ["eslint-config-airbnb", "prettier"],
+   "plugins": [
+     "prettier"
+   ],
+   "rules": {
+     "no-param-reassign": ["error", { "props": false }],
+     "no-trailing-spaces": ["error", { "skipBlankLines": true }],
+     "func-names": ["error", "never"],
+     "jsx-a11y/img-has-alt": "off",
+     "react/jsx-filename-extension": "off",
+     "react/forbid-prop-types": "off",
+     "react/require-default-props": "off",
+     "react/no-danger": "off",
+     "import/no-extraneous-dependencies": "off",
+     "prettier/prettier": "error",
+     "global-require": "off",
+     "jsx-a11y/label-has-associated-control": "off",
+     "jsx-a11y/anchor-is-valid": "off"
+   }
+}
