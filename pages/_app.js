@@ -5,13 +5,15 @@ import { ApolloProvider } from 'react-apollo';
 import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 import Router from 'next/router';
 import { pageview } from '../lib/gtag';
-import { NODE_ENV } from '../config/config';
+import { NODE_ENV, CUSTOM_ENV } from '../config/config';
 import withApolloClient from '../lib/with-apollo-client';
 import globalStyle from '../theme/global.scss';
 
-Router.onRouteChangeComplete = url => {
-  pageview(url);
-};
+if (CUSTOM_ENV === 'production') {
+  Router.onRouteChangeComplete = url => {
+    pageview(url);
+  };
+}
 
 class MyApp extends App {
   componentDidMount() {
