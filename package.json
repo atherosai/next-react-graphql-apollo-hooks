@@ -51,6 +51,7 @@
     "react-apollo-hooks": "^0.4.5",
     "react-dom": "16.8.6",
     "react-lazyload": "^2.5.0",
+    "react-spring": "^8.0.22",
     "webfontloader": "^1.6.28",
     "yup": "^0.27.0"
   },

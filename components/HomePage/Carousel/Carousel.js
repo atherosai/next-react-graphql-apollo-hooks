@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useSpring, animated } from 'react-spring';
 import {
   faMediumM,
   faFacebook,
@@ -16,9 +17,21 @@ import {
 import s from './Carousel.scss';
 
 const Carousel = () => {
+  const heightProps = useSpring({
+    config: { duration: 700 },
+    from: { height: '0px' },
+    to: { height: '700px' }
+  });
+  const opacityProps = useSpring({
+    config: { duration: 1500 },
+    delay: 500,
+    from: { opacity: 0 },
+    to: { opacity: 1 }
+  });
+
   return (
-    <section className={s.Carousel}>
-      <div className={s.Carousel__Wrapper}>
+    <animated.section className={s.Carousel} style={heightProps}>
+      <animated.div className={s.Carousel__Wrapper} style={opacityProps}>
         <div className={s.Carousel__Row}>
           <div className={s.Carousel__LeftColumn}>
             <div>
@@ -143,8 +156,8 @@ const Carousel = () => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </animated.div>
+    </animated.section>
   );
 };
 export default Carousel;
