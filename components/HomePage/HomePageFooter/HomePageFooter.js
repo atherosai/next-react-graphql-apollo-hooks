@@ -96,7 +96,7 @@ export const HomePageFooter = () => {
                   </Link>
                 </div>
                 <div className={s.Footer__SocialMedia__Link}>
-                  <Link href="https://medium.com/graphql-mastery">
+                  <Link href="https://medium.com/atheros">
                     <a title="Medium" aria-label="Medium">
                       <FontAwesomeIcon icon={faMediumM} />
                     </a>

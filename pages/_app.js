@@ -1,8 +1,7 @@
 import React from 'react';
 import get from 'lodash.get';
 import App, { Container } from 'next/app';
-import { ApolloProvider } from 'react-apollo';
-import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
+import { ApolloProvider } from '@apollo/react-hooks';
 import Router from 'next/router';
 import { pageview } from '../lib/gtag';
 import { NODE_ENV, CUSTOM_ENV } from '../config/config';
@@ -35,11 +34,9 @@ class MyApp extends App {
     return (
       <Container>
         <ApolloProvider client={apolloClient}>
-          <ApolloHooksProvider client={apolloClient}>
-            <div className={globalStyle.Global}>
-              <Component {...pageProps} />
-            </div>
-          </ApolloHooksProvider>
+          <div className={globalStyle.Global}>
+            <Component {...pageProps} />
+          </div>
         </ApolloProvider>
       </Container>
     );

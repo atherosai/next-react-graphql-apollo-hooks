@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
-import { useMutation } from 'react-apollo-hooks';
+import { useMutation } from '@apollo/react-hooks';
 import { Formik, ErrorMessage, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { get } from 'lodash';
@@ -18,7 +18,7 @@ const handleSubsribe = async ({ values, subscribeMutation, resetForm }) => {
 };
 
 const Subscription = () => {
-  const subscribeMutation = useMutation(SUSCRIBE_MUTATION, {
+  const [subscribeMutation] = useMutation(SUSCRIBE_MUTATION, {
     update: (cache, { data: { subscribe } }) => {
       const { subscriptions } = cache.readQuery({ query: SUBSCRIPTIONS_QUERY });
       cache.writeQuery({
