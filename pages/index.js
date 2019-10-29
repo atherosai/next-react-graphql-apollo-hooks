@@ -4,8 +4,8 @@ import Carousel from '../components/HomePage/Carousel/Carousel';
 import Subscription from '../components/HomePage/Subscription/Subscription';
 import SubscriptionsTable from '../components/HomePage/SubscriptionsTable/SubscriptionsTable';
 import Footer from '../components/HomePage/HomePageFooter/HomePageFooter';
-import SubscriptionsTableRenderProps from '../components/HomePage/SubscriptionsTable/SubscriptionsTableRenderProps';
-import SubscriptionsTableHOC from '../components/HomePage/SubscriptionsTable/SubscriptionsTableHOC';
+// import SubscriptionsTableRenderProps from '../components/HomePage/SubscriptionsTable/SubscriptionsTableRenderProps';
+// import SubscriptionsTableHOC from '../components/HomePage/SubscriptionsTable/SubscriptionsTableHOC';
 
 const HomePage = () => {
   return (
@@ -19,8 +19,8 @@ const HomePage = () => {
       </header>
       <main>
         <SubscriptionsTable />
-        <SubscriptionsTableRenderProps />
-        <SubscriptionsTableHOC />
+        {/* <SubscriptionsTableRenderProps />
+        <SubscriptionsTableHOC /> */}
         <Subscription />
       </main>
       <Footer />

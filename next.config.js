@@ -6,6 +6,10 @@ const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const path = require('path');
 const withGraphQL = require('next-plugin-graphql');
 const withOptimizedImages = require('next-optimized-images');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true'
+});
+
 const { NODE_ENV, CUSTOM_ENV } = require('./config/config');
 
 const configureWebpack = config => {
@@ -44,14 +48,16 @@ const configureWebpack = config => {
 };
 
 module.exports = withOptimizedImages(
-  withGraphQL(
-    withSass({
-      cssModules: true,
-      cssLoaderOptions: {
-        importLoaders: 1,
-        localIdentName: '[local]___[hash:base64:5]'
-      },
-      webpack: configureWebpack
-    })
+  withBundleAnalyzer(
+    withGraphQL(
+      withSass({
+        cssModules: true,
+        cssLoaderOptions: {
+          importLoaders: 1,
+          localIdentName: '[local]___[hash:base64:5]'
+        },
+        webpack: configureWebpack
+      })
+    )
   )
 );

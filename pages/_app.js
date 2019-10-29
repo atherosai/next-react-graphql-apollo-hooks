@@ -1,11 +1,9 @@
 import React from 'react';
 import get from 'lodash.get';
-import App, { Container } from 'next/app';
-import { ApolloProvider } from '@apollo/react-hooks';
+import App from 'next/app';
 import Router from 'next/router';
 import { pageview } from '../lib/gtag';
 import { NODE_ENV, CUSTOM_ENV } from '../config/config';
-import withApolloClient from '../lib/with-apollo-client';
 import globalStyle from '../theme/global.scss';
 
 if (CUSTOM_ENV === 'production') {
@@ -29,18 +27,14 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps, apolloClient } = this.props;
+    const { Component, pageProps } = this.props;
 
     return (
-      <Container>
-        <ApolloProvider client={apolloClient}>
-          <div className={globalStyle.Global}>
-            <Component {...pageProps} />
-          </div>
-        </ApolloProvider>
-      </Container>
+      <div className={globalStyle.Global}>
+        <Component {...pageProps} />
+      </div>
     );
   }
 }
 
-export default withApolloClient(MyApp);
+export default MyApp;
