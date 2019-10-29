@@ -7,9 +7,6 @@ import get from 'lodash.get';
 import s from './Subscription.scss';
 import SUSCRIBE_MUTATION from './Subscribe.graphql';
 import SUBSCRIPTIONS_QUERY from '../SubscriptionsTable/Subscriptions.graphql';
-import initialState from '../../../lib/init-apollo';
-
-const client = initialState({});
 
 const handleSubsribe = async ({ values, subscribeMutation, resetForm }) => {
   const subscribeResult = await subscribeMutation({
@@ -30,8 +27,7 @@ const Subscription = () => {
           subscriptions: subscriptions.concat([subscribe])
         }
       });
-    },
-    client
+    }
   });
 
   return (

@@ -3,14 +3,9 @@ import { useQuery } from '@apollo/react-hooks';
 import get from 'lodash.get';
 import SUBSCRIPTIONS_QUERY from './Subscriptions.graphql';
 import s from './SubscriptionTable.scss';
-import initialState from '../../../lib/init-apollo';
-
-const client = initialState({});
 
 const SubscriptionsTable = () => {
-  const { data, loading, error } = useQuery(SUBSCRIPTIONS_QUERY, {
-    client
-  });
+  const { data, loading, error } = useQuery(SUBSCRIPTIONS_QUERY);
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
