@@ -65,6 +65,28 @@ const config = withOffline(
   )
 );
 
+config.transformManifest = manifest => ['/'].concat(manifest);
+config.generateInDevMode = true;
+config.workboxOpts = {
+  swDest: 'service-worker.js',
+  runtimeCaching: [
+    {
+      urlPattern: /^https?.*/,
+      handler: 'NetworkFirst',
+      options: {
+        cacheName: 'https-calls',
+        networkTimeoutSeconds: 15,
+        expiration: {
+          maxEntries: 150,
+          maxAgeSeconds: 30 * 24 * 60 * 60 // 1 month
+        },
+        cacheableResponse: {
+          statuses: [0, 200]
+        }
+      }
+    }
+  ]
+};
 config.target = 'serverless';
 
 module.exports = config;

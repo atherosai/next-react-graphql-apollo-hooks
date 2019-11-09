@@ -1,5 +1,6 @@
 import React from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
+import { IS_PROD } from "../config/config";
 import initApollo from './init-apollo';
 
 interface IApolloProps {
@@ -17,8 +18,17 @@ const withApolloClientStatic: any = (App: any) => {
     );
   }
 
-  Apollo.displayName = "Apollo Client (Static)"
+  // Set the correct displayName in development
+  if (!IS_PROD) {
+    const displayName = Apollo.displayName || Apollo.name || 'Component'
 
+    if (displayName === 'App') {
+      console.warn('This withApollo HOC only works with PageComponents.')
+    }
+
+    Apollo.displayName = `withApollo(${displayName})`
+  }
+  
   return Apollo;
 };
 

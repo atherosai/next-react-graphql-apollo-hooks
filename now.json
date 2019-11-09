@@ -1,14 +1,19 @@
 {
-  "version": 2,
-  "name": "React + GraphQL + Apollo start kit",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@now/next"
-    }
-  ],
-  "env": {
-      "NODE_ENV": "production",
-      "CUSTOM_ENV": "production"
-  }
+    "version": 2,
+    "routes": [	
+        {	
+          "src": "^/service-worker.js$",	
+          "dest": "/_next/service-worker.js",
+          "headers": {
+            "cache-control": "public, max-age=43200, immutable",
+            "Service-Worker-Allowed": "/"
+          }
+        }
+    ],
+    "builds": [
+      {
+        "src": "next.config.js",
+        "use": "@now/next"
+      }
+    ]
 }
