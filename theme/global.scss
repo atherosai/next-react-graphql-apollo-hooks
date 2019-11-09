@@ -14,25 +14,32 @@
 body {
   margin: 0;
   min-width: 320px;
+  color: $secondary-color;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+
 } /* Remove body margins */
 
-
-.Global {
-  font-size: 16px;
-  input {
-    outline: none;
-  }
-  min-width: 320px;
-  color: $secondary-color;
-  font-family: "Montserrat", sans-serif;
-  a {
-    text-decoration: none !important;
-    color: $primary-color;
-  }
-  a:hover {
-    color: $primary-color;
-  }
-  a:visited {
-    color: $primary-color;
-  }
+a {
+  text-decoration: none !important;
+  color: $primary-color;
 }
+a:hover {
+  color: $primary-color;
+}
+a:visited {
+  color: $primary-color;
+}
+
+input {
+  outline: none;
+}
+
+// .Global {
+
+//   input {
+//     outline: none;
+//   }
+//   min-width: 320px;
+
+// }

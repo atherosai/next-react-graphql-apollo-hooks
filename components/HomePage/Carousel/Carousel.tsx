@@ -14,7 +14,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import s from './Carousel.scss';
 
-const Carousel = () => {
+const Carousel: React.FunctionComponent = () => {
   return (
     <section className={s.Carousel}>
       <div className={s.Carousel__Wrapper}>

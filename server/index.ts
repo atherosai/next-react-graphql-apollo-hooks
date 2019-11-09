@@ -5,7 +5,8 @@ import { join } from "path";
 import get from "lodash.get";
 import { ApolloServer } from "apollo-server-express";
 import helmet from "helmet";
-import schema from "./schema";
+import resolvers from "./schema/resolvers";
+import typeDefs from "./schema/typeDefs";
 import config from "./config";
 import httpRedirect from "./lib/http-redirect";
 import rootStaticFiles from "../config/root-static-files.json";
@@ -15,7 +16,6 @@ const { IS_PROD, PORT } = config;
 const nextServer = nextApp({ dev: !IS_PROD });
 
 const handle = nextServer.getRequestHandler();
-
 nextServer.prepare().then(() => {
   const server = express();
   server.enable('trust proxy');
@@ -27,13 +27,16 @@ nextServer.prepare().then(() => {
   }
 
   server.get('/*', (req: Request, res: Response, next: NextFunction) => {
+
     if (req.headers && req.headers.host && req.headers.host.match && req.headers.host.match(/^www/) !== null) {
       res.redirect(`https://${req.headers.host.replace(/^www\./, '')}${req.url}`);
     }
+
     next();
   });
 
   server.use((req: Request, res: Response, next: NextFunction)  => {
+
     const parsedUrl = parse(req.url, true);
     const pathname = get(parsedUrl, 'pathname')
     if (pathname) {
@@ -56,7 +59,19 @@ nextServer.prepare().then(() => {
   });
 
   const graphqlServer = new ApolloServer({
-    schema
+    resolvers,
+    typeDefs,
+    formatError: (err) => {
+      // Don't give the specific errors to the client.
+      console.log("err", err)
+      if (err.message.startsWith("Database Error: ")) {
+        return new Error('Internal server error');
+      }
+      
+      // Otherwise return the original error.  The error can also
+      // be manipulated in other ways, so long as it's returned.
+      return err;
+    },
   });
 
   graphqlServer.applyMiddleware({ app: server });

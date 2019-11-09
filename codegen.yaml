@@ -1,11 +1,12 @@
 schema: http://localhost:3000/graphql
 documents: 'components/**/*.graphql'
 generates:
+  generated/typescript-operations.ts:
+    - typescript-operations
+    - typescript
   generated/graphql-types.d.ts:
     - typescript-graphql-files-modules
-  generated/components.tsx:
-    - typescript-react-apollo
-  generated/resolver-types.ts: 
+  server/generated/resolver-types.ts: 
     - typescript
     - typescript-resolvers
 

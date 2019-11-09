@@ -1,6 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import React from 'react';
-import s from '../theme/global.scss';
 
 import MetaData from '../components/Common/MetaData/MetaData';
 
@@ -19,7 +18,7 @@ class MyDocument extends Document {
         <Head>
           <MetaData />
         </Head>
-        <body className={s.global}>
+        <body >
           <Main />
           <NextScript />
         </body>

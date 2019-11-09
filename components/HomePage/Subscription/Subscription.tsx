@@ -7,20 +7,33 @@ import get from 'lodash.get';
 import s from './Subscription.scss';
 import SUSCRIBE_MUTATION from './SUBSCRIBE.graphql';
 import SUBSCRIPTIONS_QUERY from '../SubscriptionsTable/SUBSCRIPTIONS.graphql';
+import { SubscribeMutation, SubscribeMutationVariables } from "../../../generated/typescript-operations";
 
-const handleSubsribe = async ({ values, subscribeMutation, resetForm }) => {
+interface IInitialValues {
+  email: string
+}
+interface IHandleSubscribe {
+  values: IInitialValues,
+  subscribeMutation: Function,
+  resetForm: Function
+}
+
+
+
+const handleSubsribe = async ({ values, subscribeMutation, resetForm }: IHandleSubscribe) => {
   const subscribeResult = await subscribeMutation({
     variables: { input: values }
   });
+
   if (get(subscribeResult, 'data.subscribe')) {
     resetForm();
   }
 };
 
-const Subscription = () => {
-  const [subscribeMutation] = useMutation(SUSCRIBE_MUTATION, {
-    update: (cache, { data: { subscribe } }) => {
-      const { subscriptions } = cache.readQuery({ query: SUBSCRIPTIONS_QUERY });
+const Subscription: React.FunctionComponent = () => {
+  const [subscribeMutation] = useMutation<SubscribeMutation, SubscribeMutationVariables>(SUSCRIBE_MUTATION, {
+    update: (cache, { data: { subscribe} }: any): any => {
+      const { subscriptions }: any = cache.readQuery({ query: SUBSCRIPTIONS_QUERY });
       cache.writeQuery({
         query: SUBSCRIPTIONS_QUERY,
         data: {
@@ -29,7 +42,9 @@ const Subscription = () => {
       });
     }
   });
-
+  const initialValues: IInitialValues = {
+    email: ''
+  }
   return (
     <div className={s.Subscription}>
       <div className={s.Subscription__SubscriptionWrapper}>
@@ -39,9 +54,7 @@ const Subscription = () => {
             industries for previewing layouts and visual mockups.
           </h2>
           <Formik
-            initialValues={{
-              email: ''
-            }}
+            initialValues={initialValues}
             onSubmit={async (values, { resetForm }) =>
               handleSubsribe({
                 values,
@@ -54,8 +67,8 @@ const Subscription = () => {
                 .email()
                 .required('Before submitting you need to provide your email')
             })}
-            render={() => (
-              <Form>
+          >
+            <Form>
                 <div className={s.Subscription__Row}>
                   <label htmlFor="email">Email</label>
                   <Field
@@ -78,8 +91,8 @@ const Subscription = () => {
                   />
                 </div>
               </Form>
-            )}
-          />
+          </Formik>
+
         </div>
       </div>
     </div>

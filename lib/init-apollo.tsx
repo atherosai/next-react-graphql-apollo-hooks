@@ -1,21 +1,16 @@
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache, NormalizedCacheObject } from 'apollo-cache-inmemory';
-import { createHttpLink } from 'apollo-link-http';
+import { createHttpLink, HttpLink } from 'apollo-link-http';
 
 import fetch from 'isomorphic-unfetch';
 import { IS_SERVER, API_URL } from '../config/config';
 
 let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 
-type HttpLinkConfigType = {
-  uri: any,
-  credentials: any,
-  fetch?: any
-}
 
 const create = (initialState = {}): ApolloClient<NormalizedCacheObject> => {
-  console.log("API", API_URL)
-  const httpLinkConfig: HttpLinkConfigType = {
+
+  const httpLinkConfig: HttpLink.Options = {
     uri: API_URL,
     credentials: 'same-origin',
   }

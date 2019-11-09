@@ -8,5 +8,5 @@
     "noEmit": false,
     "resolveJsonModule": true
   },
-  "include": ["server/**/*.ts"]
+  "include": ["server/**/*"]
 }

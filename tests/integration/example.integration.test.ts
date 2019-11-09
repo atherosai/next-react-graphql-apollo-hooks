@@ -1,4 +1,6 @@
-const { describe, it, expect } = global;
+const globalAny:any = global;
+
+const { describe, it, expect } = globalAny;
 
 describe('Example integration test suit', () => {
   it('integration test', () => {

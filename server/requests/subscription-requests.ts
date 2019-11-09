@@ -1,4 +1,5 @@
 import genId from "../lib/gen-id"
+import { MutationSubscribeArgs } from "../generated/resolver-types";
 
 const subscriptions = [
   {
@@ -7,10 +8,14 @@ const subscriptions = [
   }
 ];
 
-export const createSubscription = async ({}, input: any) => {
-  input.id = genId();
-  subscriptions.push(input);
-  return input;
+export const createSubscription = async ({}, args: MutationSubscribeArgs) => {
+  const { input: { email } } = args
+  const newSubscription = {
+    "id": genId(),
+    email
+  }
+  subscriptions.push(newSubscription);
+  return newSubscription;
 };
 
 export const getSubscriptions = () => subscriptions;

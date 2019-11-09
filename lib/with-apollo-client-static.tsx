@@ -6,8 +6,6 @@ interface IApolloProps {
   apolloState: Object
 }
 
-
-
 // should be used for pages, which should not be server side renderer
 const withApolloClientStatic: any = (App: any) => {
   const Apollo: React.FunctionComponent<IApolloProps> = ({ apolloState }) => {
@@ -18,6 +16,8 @@ const withApolloClientStatic: any = (App: any) => {
       </ApolloProvider>
     );
   }
+
+  Apollo.displayName = "Apollo Client (Static)"
 
   return Apollo;
 };

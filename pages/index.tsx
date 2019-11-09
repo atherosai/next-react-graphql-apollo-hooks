@@ -1,13 +1,12 @@
 import React from 'react';
 import { NextSeo, CourseJsonLd } from 'next-seo';
 import { HOST } from '../config/config';
+import "../theme/global.scss";
 import Carousel from '../components/HomePage/Carousel/Carousel';
-// import Subscription from '../components/HomePage/Subscription/Subscription';
-// import SubscriptionsTable from '../components/HomePage/SubscriptionsTable/SubscriptionsTable';
+import Subscription from '../components/HomePage/Subscription/Subscription';
+import SubscriptionsTable from '../components/HomePage/SubscriptionsTable/SubscriptionsTable';
 import withApolloClientStatic from '../lib/with-apollo-client-static';
 import Footer from '../components/HomePage/HomePageFooter/HomePageFooter';
-// import SubscriptionsTableRenderProps from '../components/HomePage/SubscriptionsTable/SubscriptionsTableRenderProps';
-// import SubscriptionsTableHOC from '../components/HomePage/SubscriptionsTable/SubscriptionsTableHOC';
 
 const title = 'GraphQL courses and articles - Javascript, React and Node.js';
 const description =
@@ -42,10 +41,8 @@ const HomePage = () => {
         <Carousel />
       </header>
       <main>
-        {/* <SubscriptionsTable />
-        <SubscriptionsTableRenderProps />
-        <SubscriptionsTableHOC /> */}
-        {/* <Subscription /> */}
+        <SubscriptionsTable />
+        <Subscription />
       </main>
       <Footer />
     </>
