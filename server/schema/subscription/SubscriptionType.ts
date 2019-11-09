@@ -1,4 +1,4 @@
-const { GraphQLObjectType, GraphQLNonNull, GraphQLString, GraphQLID } = require('graphql');
+import { GraphQLObjectType, GraphQLNonNull, GraphQLString, GraphQLID } from 'graphql';
 
 const SubscriptionType = new GraphQLObjectType({
   name: 'Subscription',
@@ -12,4 +12,4 @@ const SubscriptionType = new GraphQLObjectType({
   })
 });
 
-module.exports = SubscriptionType;
+export default SubscriptionType;

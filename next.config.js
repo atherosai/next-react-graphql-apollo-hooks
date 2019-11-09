@@ -2,6 +2,7 @@
 const withSass = require('@zeit/next-sass');
 const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
+const withOffline = require('next-offline');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const path = require('path');
 const withGraphQL = require('next-plugin-graphql');
@@ -47,17 +48,23 @@ const configureWebpack = config => {
   return config;
 };
 
-module.exports = withOptimizedImages(
-  withBundleAnalyzer(
-    withGraphQL(
-      withSass({
-        cssModules: true,
-        cssLoaderOptions: {
-          importLoaders: 1,
-          localIdentName: '[local]___[hash:base64:5]'
-        },
-        webpack: configureWebpack
-      })
+const config = withOffline(
+  withOptimizedImages(
+    withBundleAnalyzer(
+      withGraphQL(
+        withSass({
+          cssModules: true,
+          cssLoaderOptions: {
+            importLoaders: 1,
+            localIdentName: '[local]___[hash:base64:5]'
+          },
+          webpack: configureWebpack
+        })
+      )
     )
   )
 );
+
+config.target = 'serverless';
+
+module.exports = config;

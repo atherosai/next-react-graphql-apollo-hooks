@@ -1,16 +1,17 @@
-const isSecure = req => {
+
+import { Request, Response, NextFunction } from "express"
+
+const isSecure = (req: Request) => {
   if (req.secure) {
     return true;
   }
-  // azure
   if (req.headers['x-arr-log-id']) {
     return typeof req.headers['x-arr-ssl'] === 'string';
   }
-  // aws
   return req.headers['x-forwarded-proto'] === 'https';
 };
 
-const httpsRedirectMiddleware = redirectLocalhost => (req, res, next) => {
+const httpsRedirectMiddleware = (redirectLocalhost = false) => (req: Request, res: Response, next: NextFunction) => {
   if (req.hostname === 'localhost' && !redirectLocalhost) {
     return next();
   }
@@ -21,4 +22,4 @@ const httpsRedirectMiddleware = redirectLocalhost => (req, res, next) => {
   return res.redirect(`https://${req.hostname}${req.originalUrl}`);
 };
 
-module.exports = httpsRedirectMiddleware;
+export default httpsRedirectMiddleware;

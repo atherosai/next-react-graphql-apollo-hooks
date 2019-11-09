@@ -1,0 +1,11 @@
+schema: http://localhost:3000/graphql
+documents: 'components/**/*.graphql'
+generates:
+  generated/graphql-types.d.ts:
+    - typescript-graphql-files-modules
+  generated/components.tsx:
+    - typescript-react-apollo
+  generated/resolver-types.ts: 
+    - typescript
+    - typescript-resolvers
+

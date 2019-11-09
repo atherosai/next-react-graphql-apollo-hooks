@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "name": "React + GraphQL + Apollo start kit",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/next"
+    }
+  ],
+  "env": {
+      "NODE_ENV": "production",
+      "CUSTOM_ENV": "production"
+  }
+}

@@ -1,5 +1,5 @@
 const config = {
-  IS_SERVER: !process.browser,
+  IS_SERVER: typeof window !== 'undefined',
   BUNDLE_ANALYZE: process.env.BUNDLE_ANALYZE,
   NODE_ENV: process.env.NODE_ENV,
   CUSTOM_ENV: process.env.CUSTOM_ENV,

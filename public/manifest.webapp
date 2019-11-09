@@ -1,7 +1,7 @@
 {
   "name": "Next + React + GraphQL example project",
   "short_name": "Next",
-  "description": "Starter kit for creating high performance websites with React and GraphQL",
+  "description": "Starter kit for creating high performance websites with React Hooks, GraphQL and TypeScript",
   "dir": "auto",
   "lang": "en",
   "display": "standalone",

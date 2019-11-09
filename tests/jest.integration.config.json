@@ -1,0 +1,7 @@
+{
+  "verbose": true,
+  "testRegex": "integration.test",
+  "globalSetup": "tests/global-setup.js",
+  "globalTeardown": "tests/global-teardown.js",
+  "testEnvironment": "node"
+}

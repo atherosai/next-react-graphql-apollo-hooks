@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faMediumM,
@@ -72,74 +71,74 @@ const Carousel = () => {
           <div>
             <div className={s.Carousel__SocialMedia}>
               <div className={s.Carousel__SocialMedia__Link}>
-                <Link href="https://medium.com/graphql-mastery">
-                  <a title="Medium" aria-label="Medium">
-                    <FontAwesomeIcon icon={faMediumM} />
-                  </a>
-                </Link>
+                <a href="https://medium.com/atheros" title="Medium" aria-label="Medium">
+                  <FontAwesomeIcon icon={faMediumM} />
+                </a>
               </div>
               <div className={s.Carousel__SocialMedia__Link}>
-                <Link href="https://www.facebook.com/atherosai">
-                  <a title="Facebook" aria-label="Facebook">
-                    <FontAwesomeIcon icon={faFacebook} />
-                  </a>
-                </Link>
+                <a href="https://www.facebook.com/atherosai" title="Facebook" aria-label="Facebook">
+                  <FontAwesomeIcon icon={faFacebook} />
+                </a>
               </div>
               <div className={s.Carousel__SocialMedia__Link}>
-                <Link href="https://www.youtube.com/channel/UCKz-I9KL0I4kC4yF_BaiWSg">
-                  <a title="Youtube" aria-label="Youtube">
-                    <FontAwesomeIcon icon={faYoutubeSquare} />
-                  </a>
-                </Link>
+                <a
+                  href="https://www.youtube.com/channel/UCKz-I9KL0I4kC4yF_BaiWSg"
+                  title="Youtube"
+                  aria-label="Youtube"
+                >
+                  <FontAwesomeIcon icon={faYoutubeSquare} />
+                </a>
               </div>
               <div className={s.Carousel__SocialMedia__Link}>
-                <Link href="https://twitter.com/david_mraz1">
-                  <a title="Twitter" aria-label="Twitter">
-                    <FontAwesomeIcon icon={faTwitter} />
-                  </a>
-                </Link>
+                <a href="https://twitter.com/atherosai" title="Twitter" aria-label="Twitter">
+                  <FontAwesomeIcon icon={faTwitter} />
+                </a>
               </div>
               <div className={s.Carousel__SocialMedia__Link}>
-                <Link href="https://www.linkedin.com/in/david-mraz/">
-                  <a title="Linkedin" aria-label="Linkedin">
-                    <FontAwesomeIcon icon={faLinkedinIn} />
-                  </a>
-                </Link>
+                <a
+                  href="https://www.linkedin.com/company/atheros-intelligence"
+                  title="Linkedin"
+                  aria-label="Linkedin"
+                >
+                  <FontAwesomeIcon icon={faLinkedinIn} />
+                </a>
               </div>
               <div className={s.Carousel__SocialMedia__Link}>
-                <Link href="https://github.com/atherosai">
-                  <a title="Github" aria-label="Github">
-                    <FontAwesomeIcon icon={faGithub} />
-                  </a>
-                </Link>
+                <a href="https://github.com/atherosai" title="Github" aria-label="Github">
+                  <FontAwesomeIcon icon={faGithub} />
+                </a>
               </div>
               <div className={s.Carousel__SocialMedia__Link}>
-                <Link href="https://www.instagram.com/davidmraz11/">
-                  <a title="Instagram" aria-label="Instagram">
-                    <FontAwesomeIcon icon={faInstagram} />
-                  </a>
-                </Link>
+                <a
+                  href="https://www.instagram.com/atherosai/"
+                  title="Instagram"
+                  aria-label="Instagram"
+                >
+                  <FontAwesomeIcon icon={faInstagram} />
+                </a>
               </div>
             </div>
             <div className={s.Carousel__PoweredBy}>
               Powered by
-              <Link href="https://atheros.ai">
-                <a title="Atheros Intelligence" aria-label="Atheros Intelligence">
-                  <picture>
-                    <source
-                      // eslint-disable-next-line import/no-unresolved
-                      srcSet={require('./../../../images/atheros_logo.png?webp')}
-                      type="image/webp"
-                    />
-                    <source srcSet={require('../../../images/atheros_logo.png')} type="image/png" />
-                    <img
-                      style={{ width: 120 }}
-                      alt="Atheros Intelligence"
-                      src={require('../../../images/atheros_logo.png')}
-                    />
-                  </picture>
-                </a>
-              </Link>
+              <a
+                href="https://atheros.ai"
+                title="Atheros Intelligence"
+                aria-label="Atheros Intelligence"
+              >
+                <picture>
+                  <source
+                    // eslint-disable-next-line import/no-unresolved
+                    srcSet={require('./../../../images/atheros_logo.png?webp')}
+                    type="image/webp"
+                  />
+                  <source srcSet={require('../../../images/atheros_logo.png')} type="image/png" />
+                  <img
+                    style={{ width: 120 }}
+                    alt="Atheros Intelligence"
+                    src={require('../../../images/atheros_logo.png')}
+                  />
+                </picture>
+              </a>
             </div>
           </div>
         </div>

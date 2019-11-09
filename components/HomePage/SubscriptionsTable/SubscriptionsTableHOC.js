@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from '@apollo/react-hoc';
 import get from 'lodash.get';
-import SUBSCRIPTIONS_QUERY from './Subscriptions.graphql';
+import SUBSCRIPTIONS_QUERY from './SUBSCRIPTIONS.graphql';
 import s from './SubscriptionTable.scss';
 
 const withSubscriptionQuery = graphql(SUBSCRIPTIONS_QUERY);

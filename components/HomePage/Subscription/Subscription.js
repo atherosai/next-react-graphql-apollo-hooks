@@ -5,8 +5,8 @@ import { Formik, ErrorMessage, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import get from 'lodash.get';
 import s from './Subscription.scss';
-import SUSCRIBE_MUTATION from './Subscribe.graphql';
-import SUBSCRIPTIONS_QUERY from '../SubscriptionsTable/Subscriptions.graphql';
+import SUSCRIBE_MUTATION from './SUBSCRIBE.graphql';
+import SUBSCRIPTIONS_QUERY from '../SubscriptionsTable/SUBSCRIPTIONS.graphql';
 
 const handleSubsribe = async ({ values, subscribeMutation, resetForm }) => {
   const subscribeResult = await subscribeMutation({
@@ -31,7 +31,7 @@ const Subscription = () => {
   });
 
   return (
-    <div className={s.Subscription} name="subscription">
+    <div className={s.Subscription}>
       <div className={s.Subscription__SubscriptionWrapper}>
         <div>
           <h2>
