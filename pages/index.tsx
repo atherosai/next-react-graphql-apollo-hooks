@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NextSeo, CourseJsonLd } from 'next-seo';
 import { HOST } from '../config/config';
 import "../theme/global.scss";
@@ -13,6 +13,24 @@ const description =
   'Learn how to build modern Javascript apps with GraphQL courses and articles, with a focus on technologies such as GraphQL, React, Apollo and Node.js.';
 
 const HomePage = () => {
+  useEffect(() => {
+    import('webfontloader').then(WebFont => WebFont.load({
+      google: {
+        families: ['Montserrat']
+      }
+    }))
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/service-worker.js')
+        .then(() => {
+          console.log('service worker registration successful')
+        })
+        .catch(err => {
+          console.warn('service worker registration failed', err.message)
+        })
+    }
+  }, [])
   return (
     <>
       <NextSeo

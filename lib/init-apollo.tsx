@@ -9,7 +9,7 @@ let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 
 
 const create = (initialState = {}): ApolloClient<NormalizedCacheObject> => {
-
+  console.log("API", API_URL)
   const httpLinkConfig: HttpLink.Options = {
     uri: API_URL,
     credentials: 'same-origin',

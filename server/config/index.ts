@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
 export default {
   CUSTOM_ENV: process.env.CUSTOM_ENV,
   NODE_ENV: process.env.NODE_ENV,
-  API_PORT: process.env.API_PORT,
+  PORT: process.env.PORT,
   HOST: process.env.HOST,
   IS_PROD: process.env.NODE_ENV === 'production',
   BUNDLE_ANALYZE: process.env.BUNDLE_ANALYZE

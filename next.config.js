@@ -1,8 +1,6 @@
-// const withBundleAnalyzer = require("@zeit/next-bundle-analyzer");
 const withSass = require('@zeit/next-sass');
 const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
-const withOffline = require('next-offline');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const path = require('path');
 const withGraphQL = require('next-plugin-graphql');
@@ -48,45 +46,22 @@ const configureWebpack = config => {
   return config;
 };
 
-const config = withOffline(
-  withOptimizedImages(
-    withBundleAnalyzer(
-      withGraphQL(
-        withSass({
-          cssModules: true,
-          cssLoaderOptions: {
-            importLoaders: 1,
-            localIdentName: '[local]___[hash:base64:5]'
-          },
-          webpack: configureWebpack
-        })
-      )
+const config = withOptimizedImages(
+  withBundleAnalyzer(
+    withGraphQL(
+      withSass({
+        cssModules: true,
+        cssLoaderOptions: {
+          importLoaders: 1,
+          localIdentName: '[local]___[hash:base64:5]'
+        },
+        webpack: configureWebpack
+      })
     )
   )
 );
 
-config.transformManifest = manifest => ['/'].concat(manifest);
-config.generateInDevMode = true;
-config.workboxOpts = {
-  swDest: 'service-worker.js',
-  runtimeCaching: [
-    {
-      urlPattern: /^https?.*/,
-      handler: 'NetworkFirst',
-      options: {
-        cacheName: 'https-calls',
-        networkTimeoutSeconds: 15,
-        expiration: {
-          maxEntries: 150,
-          maxAgeSeconds: 30 * 24 * 60 * 60 // 1 month
-        },
-        cacheableResponse: {
-          statuses: [0, 200]
-        }
-      }
-    }
-  ]
-};
+// turn serverless on
 config.target = 'serverless';
 
 module.exports = config;

@@ -5,8 +5,6 @@
     "outDir": "dist",
     "target": "es2017",
     "isolatedModules": false,
-    "noEmit": false,
-    "resolveJsonModule": true
+    "noEmit": false
   },
-  "include": ["server/**/*"]
 }
