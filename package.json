@@ -13,10 +13,12 @@
     "transpile:server": "tsc --project tsconfig.server.json",
     "build:production": "NODE_ENV=production CUSTOM_ENV=production next build && npm run transpile:server",
     "build:staging": "NODE_ENV=production CUSTOM_ENV=staging next build && npm run transpile:server",
+    "build:local": "NODE_ENV=production CUSTOM_ENV=local next build && npm run transpile:server",
     "generate": "graphql-codegen",
     "start": "next start",
     "staging": "NODE_ENV=production CUSTOM_ENV=production node dist/server/index.js --expose-http2 ",
     "production": "NODE_ENV=production CUSTOM_ENV=production node dist/server/index.js --expose-http2 ",
+    "production:local": "NODE_ENV=production CUSTOM_ENV=local node dist/server/index.js --expose-http2 ",
     "eslint:fix": "eslint . --fix --ignore-path .gitignore",
     "bundle:analyze": "ANALYZE=true NODE_ENV=production CUSTOM_ENV=production next build && tsc --project tsconfig.server.json"
   },
