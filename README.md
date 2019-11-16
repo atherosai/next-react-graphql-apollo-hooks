@@ -16,13 +16,22 @@ Even though that the starter kit should work with older `Node` versions, I would
   },
 ```
 
-## Technologies
+## Technologies & main features
 
 * Next.js
 * React
 * GraphQL (Apollo server)
 * Apollo client
+* React Apollo Hooks
 * Node.js
+* Both client and custom server are written in TypeScript
+* GraphQL Code Generator
+* Jest
+* Static prerendering
+
+## Production usage
+
+In order to achieve the best performance you should have enabled http/2 and also enable compression in your reverse proxy (nginx). Up to day Node.js server is also very benefitial.
 
 ## Environment configuration
 
