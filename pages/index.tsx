@@ -11,7 +11,7 @@ import Footer from '../components/HomePage/HomePageFooter/HomePageFooter';
 const title = 'GraphQL courses and articles - Javascript, React and Node.js';
 const description = 'Learn how to build modern Javascript apps with GraphQL courses and articles, with a focus on technologies such as GraphQL, React, Apollo and Node.js.';
 
-const HomePage = () => {
+const HomePage: React.FunctionComponent = () => {
   useEffect(() => {
     import('webfontloader').then((WebFont) => WebFont.load({
       google: {
@@ -61,8 +61,8 @@ const HomePage = () => {
         <Carousel />
       </header>
       <main>
-        <SubscriptionsTable />
         <Subscription />
+        <SubscriptionsTable />
       </main>
       <Footer />
     </>

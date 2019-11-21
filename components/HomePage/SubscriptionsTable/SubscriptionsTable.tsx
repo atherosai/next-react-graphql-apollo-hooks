@@ -6,17 +6,16 @@ import SUBSCRIPTIONS_QUERY from './SUBSCRIPTIONS.graphql';
 import { SubscriptionsQuery, SubscriptionsQueryVariables } from '../../../generated/typescript-operations';
 import s from './SubscriptionTable.scss';
 
-const SubscriptionsTable: any = () => {
+const SubscriptionsTable: React.FunctionComponent = () => {
   const { data, loading, error } = useQuery<SubscriptionsQuery,
   SubscriptionsQueryVariables>(SUBSCRIPTIONS_QUERY);
 
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
+  if (loading) return <>Loading...</>;
+  if (error) return <>{`Error! ${error.message}`}</>;
 
   return (
     <div className={s.SubscriptionTable}>
       <h2>React Hooks</h2>
-
       <div className={s.SubscriptionTable__Header}>Email</div>
       {data && data.subscriptions && data.subscriptions.map((subscription) => (
         <div key={get(subscription, 'id', uuid())} className={s.SubscriptionTable__Row}>

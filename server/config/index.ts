@@ -1,5 +1,5 @@
 import { config } from 'dotenv';
-import path from "path";
+import path from 'path';
 
 const DIR = path.resolve(__dirname, '../..');
 if (!process.env.CUSTOM_ENV) {
@@ -7,11 +7,11 @@ if (!process.env.CUSTOM_ENV) {
 }
 if (process.env.NODE_ENV === 'production') {
   config({
-    path: `${DIR}/../secrets/${process.env.NODE_ENV}-${process.env.CUSTOM_ENV}.env`
+    path: `${DIR}/../secrets/${process.env.NODE_ENV}-${process.env.CUSTOM_ENV}.env`,
   });
 } else {
   config({
-    path: `${DIR}/secrets/${process.env.NODE_ENV}-${process.env.CUSTOM_ENV}.env`
+    path: `${DIR}/secrets/${process.env.NODE_ENV}-${process.env.CUSTOM_ENV}.env`,
   });
 }
 
@@ -21,5 +21,5 @@ export default {
   PORT: process.env.PORT,
   HOST: process.env.HOST,
   IS_PROD: process.env.NODE_ENV === 'production',
-  BUNDLE_ANALYZE: process.env.BUNDLE_ANALYZE
+  BUNDLE_ANALYZE: process.env.BUNDLE_ANALYZE,
 };

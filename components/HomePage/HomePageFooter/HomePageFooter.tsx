@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import React from 'react';
 import LazyLoad from 'react-lazyload';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

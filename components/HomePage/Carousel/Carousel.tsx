@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -26,6 +27,7 @@ const Carousel: React.FunctionComponent = () => (
             >
               <picture>
                 <source
+                  // eslint-disable-next-line import/no-unresolved
                   srcSet={require('../../../images/graphql_mastery_white_middle.png?webp')}
                   type="image/webp"
                 />

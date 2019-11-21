@@ -1,7 +1,9 @@
 
 {
   "env": {
-    "jest": true
+    "jest": true,
+    "browser": true,
+    "node": true
   },
   "parser": "@typescript-eslint/parser",
   "extends": ["airbnb", "plugin:@typescript-eslint/recommended", "plugin:security/recommended"],

@@ -9,7 +9,7 @@ interface ApolloPropsI {
 
 // should be used for pages, which should not be server side renderer
 const withApolloClientStatic: any = (App: any) => {
-  const Apollo: React.FunctionComponent<ApolloPropsI> = ({ apolloState }) => {
+  const Apollo: React.FunctionComponent<ApolloPropsI> = ({ apolloState }: any) => {
     const apolloClient = initApollo(apolloState);
     return (
       <ApolloProvider client={apolloClient}>

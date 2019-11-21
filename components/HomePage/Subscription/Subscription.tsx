@@ -9,7 +9,7 @@ import get from 'lodash.get';
 import s from './Subscription.scss';
 import SUSCRIBE_MUTATION from './SUBSCRIBE.graphql';
 import SUBSCRIPTIONS_QUERY from '../SubscriptionsTable/SUBSCRIPTIONS.graphql';
-import { SubscribeMutation, SubscribeMutationVariables } from '../../../generated/typescript-operations';
+import { SubscribeMutation, SubscribeMutationVariables, Query } from '../../../generated/typescript-operations';
 
 interface InitialValuesI {
   email: string;
@@ -22,20 +22,22 @@ interface HandleSubscribeI {
 
 
 const handleSubsribe = async ({ values, subscribeMutation, resetForm }: HandleSubscribeI) => {
-  const subscribeResult = await subscribeMutation({
+  const subscribeResult: Promise<SubscribeMutation> = await subscribeMutation({
     variables: { input: values },
   });
 
   if (get(subscribeResult, 'data.subscribe')) {
     resetForm();
   }
+
+  return subscribeResult;
 };
 
 const Subscription: React.FunctionComponent = () => {
   const [subscribeMutation] = useMutation<SubscribeMutation, SubscribeMutationVariables>(
     SUSCRIBE_MUTATION,
     {
-      update: (cache, { data: { subscribe } }: any): any => {
+      update: (cache, { data: { subscribe } }: any): void => {
         const { subscriptions }: any = cache.readQuery({ query: SUBSCRIPTIONS_QUERY });
         cache.writeQuery({
           query: SUBSCRIPTIONS_QUERY,
@@ -85,7 +87,6 @@ const Subscription: React.FunctionComponent = () => {
                 </button>
               </div>
               <div className={s.Subscription__FieldErrorRow}>
-                {' '}
                 <ErrorMessage
                   name="email"
                   component="div"
