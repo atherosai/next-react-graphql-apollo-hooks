@@ -1,5 +1,6 @@
 import React from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloClient } from 'apollo-client';
 import { IS_PROD } from '../config/config';
 import initApollo from './init-apollo';
 

@@ -5,6 +5,8 @@ import {
   Formik, ErrorMessage, Form, Field,
 } from 'formik';
 import * as Yup from 'yup';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { FetchResult } from 'apollo-link';
 import get from 'lodash.get';
 import s from './Subscription.scss';
 import SUSCRIBE_MUTATION from './SUBSCRIBE.graphql';
@@ -21,7 +23,11 @@ interface HandleSubscribeI {
 }
 
 
-const handleSubsribe = async ({ values, subscribeMutation, resetForm }: HandleSubscribeI) => {
+const handleSubsribe: Function = async ({
+  values,
+  subscribeMutation,
+  resetForm,
+}: HandleSubscribeI) => {
   const subscribeResult: Promise<SubscribeMutation> = await subscribeMutation({
     variables: { input: values },
   });
@@ -33,16 +39,20 @@ const handleSubsribe = async ({ values, subscribeMutation, resetForm }: HandleSu
   return subscribeResult;
 };
 
+
 const Subscription: React.FunctionComponent = () => {
   const [subscribeMutation] = useMutation<SubscribeMutation, SubscribeMutationVariables>(
     SUSCRIBE_MUTATION,
     {
-      update: (cache, { data: { subscribe } }: any): void => {
-        const { subscriptions }: any = cache.readQuery({ query: SUBSCRIPTIONS_QUERY });
+      update: (cache, { data }: FetchResult): void => {
+        const dataResult = cache.readQuery<Query>({ query: SUBSCRIPTIONS_QUERY });
+
         cache.writeQuery({
           query: SUBSCRIPTIONS_QUERY,
           data: {
-            subscriptions: subscriptions.concat([subscribe]),
+            subscriptions: dataResult
+            && dataResult.subscriptions
+            && dataResult.subscriptions.concat([data && data.subscribe]),
           },
         });
       },
@@ -61,7 +71,7 @@ const Subscription: React.FunctionComponent = () => {
           </h2>
           <Formik
             initialValues={initialValues}
-            onSubmit={async (values, { resetForm }) => handleSubsribe({
+            onSubmit={async (values, { resetForm }): Promise<SubscribeMutation> => handleSubsribe({
               values,
               subscribeMutation,
               resetForm,
