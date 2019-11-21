@@ -1,0 +1,32 @@
+{
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false
+      },
+      "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false
+      },
+      "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false
+      },
+      "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false
+      },
+      "eslint.autoFixOnSave": true,
+      "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        {
+          "autoFix": true,
+          "language": "typescript"
+        },
+        {
+          "autoFix": true,
+          "language": "typescriptreact"
+        }
+      ],
+      "prettier-eslint.eslintIntegration": true,
+}

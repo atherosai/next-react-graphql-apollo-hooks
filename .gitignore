@@ -6,3 +6,6 @@ node_modules/
 
 # typescript build output
 dist
+
+# exported static files
+out

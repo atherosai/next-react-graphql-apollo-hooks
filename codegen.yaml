@@ -1,4 +1,4 @@
-schema: http://localhost:3000/graphql
+schema: 'server/schema/typeDefs.ts'
 documents: 'components/**/*.graphql'
 generates:
   generated/typescript-operations.ts:

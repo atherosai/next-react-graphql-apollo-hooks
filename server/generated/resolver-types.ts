@@ -1,4 +1,4 @@
-import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
+import { GraphQLResolveInfo } from 'graphql';
 export type Maybe<T> = T | null;
 export type RequireFields<T, K extends keyof T> = { [X in Exclude<keyof T, K>]?: T[X] } & { [P in K]-?: NonNullable<T[P]> };
 /** All built-in and custom scalars, mapped to their actual values */
@@ -8,15 +8,7 @@ export type Scalars = {
   Boolean: boolean,
   Int: number,
   Float: number,
-  /** The `Upload` scalar type represents a file upload. */
-  Upload: any,
 };
-
-
-export enum CacheControlScope {
-  Public = 'PUBLIC',
-  Private = 'PRIVATE'
-}
 
 export type Mutation = {
    __typename?: 'Mutation',
@@ -42,7 +34,6 @@ export type Subscription = {
   id: Scalars['ID'],
   email: Scalars['String'],
 };
-
 
 
 
@@ -122,9 +113,6 @@ export type ResolversTypes = {
   Mutation: ResolverTypeWrapper<{}>,
   SubscribeInput: SubscribeInput,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
-  CacheControlScope: CacheControlScope,
-  Upload: ResolverTypeWrapper<Scalars['Upload']>,
-  Int: ResolverTypeWrapper<Scalars['Int']>,
 };
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -136,13 +124,7 @@ export type ResolversParentTypes = {
   Mutation: {},
   SubscribeInput: SubscribeInput,
   Boolean: Scalars['Boolean'],
-  CacheControlScope: CacheControlScope,
-  Upload: Scalars['Upload'],
-  Int: Scalars['Int'],
 };
-
-export type CacheControlDirectiveResolver<Result, Parent, ContextType = any, Args = {   maxAge?: Maybe<Maybe<Scalars['Int']>>,
-  scope?: Maybe<Maybe<CacheControlScope>> }> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   subscribe?: Resolver<ResolversTypes['Subscription'], ParentType, ContextType, RequireFields<MutationSubscribeArgs, 'input'>>,
@@ -157,15 +139,10 @@ export type SubscriptionResolvers<ContextType = any, ParentType extends Resolver
   email?: SubscriptionResolver<ResolversTypes['String'], "email", ParentType, ContextType>,
 };
 
-export interface UploadScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Upload'], any> {
-  name: 'Upload'
-}
-
 export type Resolvers<ContextType = any> = {
   Mutation?: MutationResolvers<ContextType>,
   Query?: QueryResolvers<ContextType>,
   Subscription?: SubscriptionResolvers<ContextType>,
-  Upload?: GraphQLScalarType,
 };
 
 
@@ -174,13 +151,3 @@ export type Resolvers<ContextType = any> = {
  * Use "Resolvers" root object instead. If you wish to get "IResolvers", add "typesPrefix: I" to your config.
 */
 export type IResolvers<ContextType = any> = Resolvers<ContextType>;
-export type DirectiveResolvers<ContextType = any> = {
-  cacheControl?: CacheControlDirectiveResolver<any, any, ContextType>,
-};
-
-
-/**
-* @deprecated
-* Use "DirectiveResolvers" root object instead. If you wish to get "IDirectiveResolvers", add "typesPrefix: I" to your config.
-*/
-export type IDirectiveResolvers<ContextType = any> = DirectiveResolvers<ContextType>;
