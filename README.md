@@ -1,13 +1,13 @@
 # High performance Next + React + GraphQL starter kit
 
-The purpose of this starter kit is not to be complete solution, but introduction for creating high performance websites with Next.js, React and GraphQL. We use this repository for new projects at [Atheros Intelligence](https://atheros.ai/) and as the repository for our articles at [GraphQL Mastery](https://graphqlmastery.com/blog)
+The purpose of this starter kit is not to be complete solution, but introduction for creating high performance websites with Next.js, React and GraphQL. We use this repository for new projects at [Atheros Intelligence](https://atheros.ai/) and as the repository for our articles at [GraphQL Mastery](https://atheros.ai/blog)
 
 * Clone the repository with `git clone git@github.com:atherosai/react-next-apollo-graphql.git`
 * To preserve secure dependencies in `package-lock.json` use `npm ci` to install packages
 
 ## Node.js version
 
-Even though that the starter kit should work with older `Node` versions, I would suggest to use latest Node `LTS version`. In `package.json` we require `npm` and `node` version to be higher.
+Even though that the starter kit should work with older `Node` versions, I would suggest to use latest Node `LTS version`. In `package.json`. We have set requirements as follows:
 
 ```json
  "engines": {
@@ -24,14 +24,13 @@ Even though that the starter kit should work with older `Node` versions, I would
 * Apollo client
 * React Apollo Hooks
 * Node.js
-* Both client and custom server are written in TypeScript
+* TypeScript
 * GraphQL Code Generator
 * Jest
-* Static prerendering
 
 ## Production usage
 
-In order to achieve the best performance you should have enabled http/2 and also enable compression in your reverse proxy (nginx). Up to day Node.js server is also very benefitial.
+In order to achieve the best performance you should have enabled http/2 and also enable compression in your reverse proxy (nginx). Up to date Node.js server is also very benefitial.
 
 ## Environment configuration
 

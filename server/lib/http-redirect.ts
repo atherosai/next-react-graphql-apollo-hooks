@@ -1,5 +1,5 @@
 
-import { Request, Response, NextFunction } from "express"
+import { Request, Response, NextFunction } from 'express';
 
 const isSecure = (req: Request) => {
   if (req.secure) {
@@ -11,7 +11,9 @@ const isSecure = (req: Request) => {
   return req.headers['x-forwarded-proto'] === 'https';
 };
 
-const httpsRedirectMiddleware = (redirectLocalhost = false) => (req: Request, res: Response, next: NextFunction) => {
+const httpsRedirectMiddleware = (redirectLocalhost = false) => (
+  req: Request, res: Response, next: NextFunction,
+) => {
   if (req.hostname === 'localhost' && !redirectLocalhost) {
     return next();
   }

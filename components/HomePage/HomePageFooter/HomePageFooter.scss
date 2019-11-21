@@ -28,11 +28,11 @@
     display: flex;
     flex-wrap: wrap;
     a {
-      font-size: 20px;
+      font-size: 25px;
     }
     &__Link {
       padding-right: 10px;
-      font-size: 24px;
+      font-size: 30px;
       @media (max-width: $breakpoint-mobile) {
         padding: 5px;
         font-size: 26px;

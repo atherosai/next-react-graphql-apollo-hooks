@@ -10,7 +10,7 @@ class MyDocument extends Document {
         <Head>
           <MetaData />
         </Head>
-        <body >
+        <body>
           <Main />
           <NextScript />
         </body>

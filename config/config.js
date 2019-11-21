@@ -7,7 +7,7 @@ const config = {
   HOST: process.env.HOST,
   IS_PROD: process.env.NODE_ENV === 'production',
   GA_TRACKING_ID: process.env.GA_TRACKING_ID || 'XXX-XXX-XXX',
-  API_URL: process.env.API_URL
+  API_URL: process.env.API_URL,
 };
 
 module.exports = config;

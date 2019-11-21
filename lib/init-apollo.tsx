@@ -9,14 +9,13 @@ let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 
 
 const create = (initialState = {}): ApolloClient<NormalizedCacheObject> => {
-  console.log("API", API_URL)
   const httpLinkConfig: HttpLink.Options = {
     uri: API_URL,
     credentials: 'same-origin',
-  }
+  };
 
   if (!IS_SERVER) {
-    httpLinkConfig.fetch = fetch
+    httpLinkConfig.fetch = fetch;
   }
 
 
@@ -24,7 +23,7 @@ const create = (initialState = {}): ApolloClient<NormalizedCacheObject> => {
     connectToDevTools: !IS_SERVER,
     ssrMode: IS_SERVER,
     link: createHttpLink(httpLinkConfig),
-    cache: new InMemoryCache().restore(initialState)
+    cache: new InMemoryCache().restore(initialState),
   });
 };
 

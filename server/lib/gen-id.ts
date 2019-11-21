@@ -1,7 +1,5 @@
-import uuid from "uuid/v1"
+import uuid from 'uuid/v1';
 
-const genId = () => {
-  return uuid()
-};
+const genId = () => uuid();
 
 export default genId;

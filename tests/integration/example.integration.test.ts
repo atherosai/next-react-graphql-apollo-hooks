@@ -1,4 +1,4 @@
-const globalAny:any = global;
+const globalAny: any = global;
 
 const { describe, it, expect } = globalAny;
 

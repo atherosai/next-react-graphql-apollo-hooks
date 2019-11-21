@@ -9,4 +9,6 @@ generates:
   server/generated/resolver-types.ts: 
     - typescript
     - typescript-resolvers
-
+hooks:
+  afterAllFileWrite:
+    - eslint generated/typescript-operations.ts generated/graphql-types.d.ts server/generated/resolver-types.ts --fix

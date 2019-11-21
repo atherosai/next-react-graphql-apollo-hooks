@@ -1,4 +1,4 @@
-import { gql } from "apollo-server-express";
+import { gql } from 'apollo-server-express';
 
 const typeDefs = gql`
 type Subscription {
@@ -16,6 +16,6 @@ type Mutation {
 
 type Query {
     subscriptions: [Subscription]
-}`
+}`;
 
 export default typeDefs;
