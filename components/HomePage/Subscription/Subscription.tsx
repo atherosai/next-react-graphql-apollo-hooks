@@ -29,7 +29,12 @@ const handleSubsribe: Function = async ({
   resetForm,
 }: HandleSubscribeI) => {
   const subscribeResult: Promise<SubscribeMutation> = await subscribeMutation({
-    variables: { input: values },
+    variables: {
+      input: {
+        source: 'HOME_PAGE',
+        ...values,
+      },
+    },
   });
 
   if (get(subscribeResult, 'data.subscribe')) {
@@ -46,7 +51,6 @@ const Subscription: React.FunctionComponent = () => {
     {
       update: (cache, { data }: FetchResult): void => {
         const dataResult = cache.readQuery<Query>({ query: SUBSCRIPTIONS_QUERY });
-
         cache.writeQuery({
           query: SUBSCRIPTIONS_QUERY,
           data: {

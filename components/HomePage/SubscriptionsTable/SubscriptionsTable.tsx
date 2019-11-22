@@ -4,7 +4,7 @@ import uuid from 'uuid/v1';
 import { useQuery } from '@apollo/react-hooks';
 import SUBSCRIPTIONS_QUERY from './SUBSCRIPTIONS.graphql';
 import { SubscriptionsQuery, SubscriptionsQueryVariables } from '../../../generated/typescript-operations';
-import s from './SubscriptionTable.scss';
+import s from './SubscriptionsTable.scss';
 
 const SubscriptionsTable: React.FunctionComponent = () => {
   const { data, loading, error } = useQuery<SubscriptionsQuery,
@@ -15,13 +15,27 @@ const SubscriptionsTable: React.FunctionComponent = () => {
 
   return (
     <div className={s.SubscriptionTable}>
-      <h2>React Hooks</h2>
-      <div className={s.SubscriptionTable__Header}>Email</div>
-      {data && data.subscriptions && data.subscriptions.map((subscription) => (
-        <div key={get(subscription, 'id', uuid())} className={s.SubscriptionTable__Row}>
-          {get(subscription, 'email')}
-        </div>
-      ))}
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data && data.subscriptions && data.subscriptions.map((subscription) => (
+            <tr key={get(subscription, 'id', uuid())}>
+              <td>
+                {get(subscription, 'email')}
+              </td>
+              <td>
+                {get(subscription, 'source')}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
     </div>
   );
 };

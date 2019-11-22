@@ -1,0 +1,30 @@
+@import "../../../theme/variables.scss";
+
+.SubscriptionTable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    min-height: 250px;
+    table {
+        border-collapse: collapse;
+        min-width: 600px;
+    }
+    
+    th {
+        text-align: left;
+        padding: 8px;
+        background-color: $secondary-color;
+        color: white;
+    }
+    td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+}
+

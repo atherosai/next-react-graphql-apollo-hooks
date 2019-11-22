@@ -19,7 +19,7 @@ export type SubscriptionsQuery = (
   { __typename?: 'Query' }
   & { subscriptions: Maybe<Array<Maybe<(
     { __typename?: 'Subscription' }
-    & Pick<Subscription, 'id' | 'email'>
+    & Pick<Subscription, 'id' | 'email' | 'source'>
   )>>> }
 );
 
@@ -47,12 +47,19 @@ export type Query = {
   subscriptions?: Maybe<Array<Maybe<Subscription>>>,
 };
 
+export enum SourceEnum {
+  Article = 'ARTICLE',
+  Homepage = 'HOMEPAGE'
+}
+
 export type SubscribeInput = {
   email: Scalars['String'],
+  source: SourceEnum,
 };
 
 export type Subscription = {
    __typename?: 'Subscription',
   id: Scalars['ID'],
   email: Scalars['String'],
+  source: SourceEnum,
 };

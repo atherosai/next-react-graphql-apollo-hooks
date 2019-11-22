@@ -2,5 +2,6 @@ mutation Subscribe($input: SubscribeInput!) {
   subscribe(input: $input) {
     id
     email
+    source
   }
 }

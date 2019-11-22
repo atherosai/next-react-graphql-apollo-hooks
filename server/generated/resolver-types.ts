@@ -25,14 +25,21 @@ export type Query = {
   subscriptions?: Maybe<Array<Maybe<Subscription>>>,
 };
 
+export enum SourceEnum {
+  Article = 'ARTICLE',
+  Homepage = 'HOMEPAGE'
+}
+
 export type SubscribeInput = {
   email: Scalars['String'],
+  source: SourceEnum,
 };
 
 export type Subscription = {
    __typename?: 'Subscription',
   id: Scalars['ID'],
   email: Scalars['String'],
+  source: SourceEnum,
 };
 
 
@@ -110,6 +117,7 @@ export type ResolversTypes = {
   Subscription: ResolverTypeWrapper<{}>,
   ID: ResolverTypeWrapper<Scalars['ID']>,
   String: ResolverTypeWrapper<Scalars['String']>,
+  SourceEnum: SourceEnum,
   Mutation: ResolverTypeWrapper<{}>,
   SubscribeInput: SubscribeInput,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
@@ -121,6 +129,7 @@ export type ResolversParentTypes = {
   Subscription: {},
   ID: Scalars['ID'],
   String: Scalars['String'],
+  SourceEnum: SourceEnum,
   Mutation: {},
   SubscribeInput: SubscribeInput,
   Boolean: Scalars['Boolean'],
@@ -137,6 +146,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 export type SubscriptionResolvers<ContextType = any, ParentType extends ResolversParentTypes['Subscription'] = ResolversParentTypes['Subscription']> = {
   id?: SubscriptionResolver<ResolversTypes['ID'], "id", ParentType, ContextType>,
   email?: SubscriptionResolver<ResolversTypes['String'], "email", ParentType, ContextType>,
+  source?: SubscriptionResolver<ResolversTypes['SourceEnum'], "source", ParentType, ContextType>,
 };
 
 export type Resolvers<ContextType = any> = {
