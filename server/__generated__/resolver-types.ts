@@ -27,7 +27,7 @@ export type Query = {
 
 export enum SourceEnum {
   Article = 'ARTICLE',
-  Homepage = 'HOMEPAGE'
+  HomePage = 'HOME_PAGE'
 }
 
 export type SubscribeInput = {

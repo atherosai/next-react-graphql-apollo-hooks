@@ -1,5 +1,5 @@
 import genId from '../lib/gen-id';
-import { MutationSubscribeArgs, Subscription } from '../generated/resolver-types';
+import { MutationSubscribeArgs, Subscription } from '../__generated__/resolver-types';
 
 const subscriptions = [
   {

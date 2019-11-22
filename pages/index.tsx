@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { NextSeo, CourseJsonLd } from 'next-seo';
-import { HOST } from '../config/config';
+import { HOST, NODE_ENV } from '../config/config';
 import '../theme/global.scss';
 import Carousel from '../components/HomePage/Carousel/Carousel';
 import Subscription from '../components/HomePage/Subscription/Subscription';
@@ -19,7 +19,7 @@ const HomePage: React.FunctionComponent = () => {
       },
     }));
 
-    if ('serviceWorker' in navigator) {
+    if (NODE_ENV === 'production' && 'serviceWorker' in navigator) {
       navigator.serviceWorker
         .register('/service-worker.js')
         .then(() => {

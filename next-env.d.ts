@@ -1,13 +1,12 @@
-/// <reference types="next" />
-/// <reference types="next/types/global" />
+// / <reference types="next" />
+// / <reference types="next/types/global" />
 
 
 declare module '*.scss' {
-    const content: {[className: string]: string};
-    export = content;
+  const content: {[className: string]: string};
+  export = content;
 }
 declare module '*.graphql' {
-    const content: any;
-    export = content;
+  const content: any;
+  export = content;
 }
-

@@ -1,14 +1,9 @@
 schema: 'server/schema/typeDefs.ts'
 documents: 'components/**/*.graphql'
 generates:
-  generated/typescript-operations.ts:
+  __generated__/typescript-operations.ts:
     - typescript-operations
     - typescript
-  generated/graphql-types.d.ts:
-    - typescript-graphql-files-modules
-  server/generated/resolver-types.ts: 
+  server/__generated__/resolver-types.ts: 
     - typescript
     - typescript-resolvers
-hooks:
-  afterAllFileWrite:
-    - eslint generated/typescript-operations.ts generated/graphql-types.d.ts server/generated/resolver-types.ts --fix

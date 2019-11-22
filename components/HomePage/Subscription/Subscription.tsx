@@ -11,7 +11,7 @@ import get from 'lodash.get';
 import s from './Subscription.scss';
 import SUSCRIBE_MUTATION from './SUBSCRIBE.graphql';
 import SUBSCRIPTIONS_QUERY from '../SubscriptionsTable/SUBSCRIPTIONS.graphql';
-import { SubscribeMutation, SubscribeMutationVariables, Query } from '../../../generated/typescript-operations';
+import { SubscribeMutation, SubscribeMutationVariables, Query } from '../../../__generated__/typescript-operations';
 
 interface InitialValuesI {
   email: string;

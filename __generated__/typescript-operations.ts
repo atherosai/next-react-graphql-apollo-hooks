@@ -8,7 +8,7 @@ export type SubscribeMutation = (
   { __typename?: 'Mutation' }
   & { subscribe: (
     { __typename?: 'Subscription' }
-    & Pick<Subscription, 'id' | 'email'>
+    & Pick<Subscription, 'id' | 'email' | 'source'>
   ) }
 );
 
@@ -49,7 +49,7 @@ export type Query = {
 
 export enum SourceEnum {
   Article = 'ARTICLE',
-  Homepage = 'HOMEPAGE'
+  HomePage = 'HOME_PAGE'
 }
 
 export type SubscribeInput = {

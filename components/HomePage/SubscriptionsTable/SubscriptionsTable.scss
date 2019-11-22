@@ -9,7 +9,9 @@
     min-height: 250px;
     table {
         border-collapse: collapse;
-        min-width: 600px;
+        min-width: 320px;
+        max-width: 600px;
+        width: 100%;
     }
     
     th {

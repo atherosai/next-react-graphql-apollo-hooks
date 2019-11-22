@@ -3,7 +3,7 @@ import get from 'lodash.get';
 import uuid from 'uuid/v1';
 import { useQuery } from '@apollo/react-hooks';
 import SUBSCRIPTIONS_QUERY from './SUBSCRIPTIONS.graphql';
-import { SubscriptionsQuery, SubscriptionsQueryVariables } from '../../../generated/typescript-operations';
+import { SubscriptionsQuery, SubscriptionsQueryVariables } from '../../../__generated__/typescript-operations';
 import s from './SubscriptionsTable.scss';
 
 const SubscriptionsTable: React.FunctionComponent = () => {

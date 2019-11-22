@@ -1,5 +1,5 @@
 
 dist
 node_modules
-generated
-server/generated
+__generated__
+server/__generated__

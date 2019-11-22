@@ -1,5 +1,5 @@
 import { getSubscriptions, createSubscription } from '../requests/subscription-requests';
-import { Resolvers } from '../generated/resolver-types';
+import { Resolvers } from '../__generated__/resolver-types';
 
 
 interface StringIndexSignatureInterface {

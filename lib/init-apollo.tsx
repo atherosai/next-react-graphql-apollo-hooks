@@ -28,7 +28,7 @@ const create = (initialState = {}): ApolloClient<NormalizedCacheObject> => {
 };
 
 export default (initialState = {}): ApolloClient<NormalizedCacheObject> => {
-  if (!process.browser) {
+  if (!IS_SERVER) {
     return create(initialState);
   }
   if (!apolloClient) {
