@@ -61,8 +61,8 @@ const HomePage: React.FunctionComponent = () => {
         <Carousel />
       </header>
       <main>
-        <Subscription />
         <SubscriptionsTable />
+        <Subscription />
       </main>
       <Footer />
     </>
