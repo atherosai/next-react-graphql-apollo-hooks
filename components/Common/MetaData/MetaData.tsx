@@ -2,7 +2,7 @@ import React from 'react';
 import { GA_TRACKING_ID, CUSTOM_ENV } from '../../../config/config';
 
 
-const MetaData = () => (
+const MetaData: React.FunctionComponent = () => (
   <>
     <meta charSet="utf-8" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -89,6 +89,7 @@ const MetaData = () => (
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
     {CUSTOM_ENV === 'production' && (
       <script
+        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: `
                       window.dataLayer = window.dataLayer || [];

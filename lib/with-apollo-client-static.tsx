@@ -1,16 +1,21 @@
 import React from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
-import { ApolloClient } from 'apollo-client';
+import ApolloClient from 'apollo-client';
+import { NormalizedCacheObject } from 'apollo-cache-inmemory';
 import { IS_PROD } from '../config/config';
 import initApollo from './init-apollo';
 
-interface ApolloPropsI {
-  apolloState: Record<string, any>;
+
+interface AppPropsI {
+  apolloClient: ApolloClient<NormalizedCacheObject>;
 }
 
+interface ApolloPropsI {
+  apolloState: NormalizedCacheObject;
+}
 // should be used for pages, which should not be server side renderer
-const withApolloClientStatic: any = (App: any) => {
-  const Apollo: React.FunctionComponent<ApolloPropsI> = ({ apolloState }: any) => {
+const withApolloClientStatic: Function = (App: React.FunctionComponent<AppPropsI>) => {
+  const Apollo: React.FunctionComponent<ApolloPropsI> = ({ apolloState }: ApolloPropsI) => {
     const apolloClient = initApollo(apolloState);
     return (
       <ApolloProvider client={apolloClient}>

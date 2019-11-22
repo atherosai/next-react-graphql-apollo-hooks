@@ -1,7 +1,14 @@
-export const IS_SERVER = typeof window !== 'undefined';
 
-export const {
-  HOST, CUSTOM_ENV, NODE_ENV, ANALYZE, PORT, GA_TRACKING_ID = 'XXX-XXX-XXX', API_URL,
-} = process.env;
+const config = {
+  IS_SERVER: typeof window === 'undefined',
+  BUNDLE_ANALYZE: process.env.BUNDLE_ANALYZE,
+  NODE_ENV: process.env.NODE_ENV,
+  CUSTOM_ENV: process.env.CUSTOM_ENV,
+  PORT: process.env.PORT,
+  HOST: process.env.HOST,
+  IS_PROD: process.env.NODE_ENV === 'production',
+  GA_TRACKING_ID: process.env.GA_TRACKING_ID || 'XXX-XXX-XXX',
+  API_URL: process.env.API_URL,
+};
 
-export const IS_PROD = NODE_ENV === 'production';
+module.exports = config;
