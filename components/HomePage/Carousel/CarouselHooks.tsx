@@ -84,12 +84,7 @@ const Carousel: React.FunctionComponent = () => {
                 {fadingTextPropsTransition.map(({ item, props, key }) => (
                   <animated.div key={key} style={{ ...props, position: 'absolute' }}>
                     <p
-                      style={{
-                        height: '60px',
-                        display: 'block',
-                        textAlign: 'center',
-                        color: 'white',
-                      }}
+                      className={s.Carousel__Title}
                     >
                       {item.title}
                     </p>

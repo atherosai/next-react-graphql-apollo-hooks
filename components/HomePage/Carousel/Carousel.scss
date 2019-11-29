@@ -1,15 +1,21 @@
-@import "../../../theme/variables.scss";
+@import '../../../theme/variables.scss';
 
 .Carousel {
   position: relative;
   height: 700px;
   display: flex;
 
-
   &__TechnologyStack {
     margin-top: 15px;
     text-align: center;
     color: white !important;
+  }
+
+  &__Title {
+    height: 60px;
+    display: block;
+    text-align: center;
+    color: white;
   }
 
   &__Technology {
@@ -45,10 +51,10 @@
       a {
         font-size: 24px;
         color: white !important;
-        -webkit-transition: color .3s ease-out;
-        -moz-transition: color .3s ease-out;
-        -o-transition: color .3s ease-out;
-        transition: color .3s ease-out;
+        -webkit-transition: color 0.3s ease-out;
+        -moz-transition: color 0.3s ease-out;
+        -o-transition: color 0.3s ease-out;
+        transition: color 0.3s ease-out;
         &:hover {
           color: $primary-color !important;
         }
