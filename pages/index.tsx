@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { NextSeo, CourseJsonLd } from 'next-seo';
 import { HOST, NODE_ENV } from '../config/config';
 import '../theme/global.scss';
-import Carousel from '../components/HomePage/Carousel/CarouselRenderProps';
+import Carousel from '../components/HomePage/Carousel/CarouselHooks';
 import Subscription from '../components/HomePage/Subscription/Subscription';
 import SubscriptionsTable from '../components/HomePage/SubscriptionsTable/SubscriptionsTable';
 import withApolloClientStatic from '../lib/with-apollo-client-static';
