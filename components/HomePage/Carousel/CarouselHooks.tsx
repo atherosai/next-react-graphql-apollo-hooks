@@ -43,7 +43,13 @@ const Carousel: React.FunctionComponent = () => {
     config: { tension: 220, friction: 120 },
   });
 
-  useEffect(() => void setInterval(() => setIndex(state => (state + 1) % items.length), 4000), []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex(state => (state + 1) % items.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return(
     <animated.section className={s.Carousel} style={heightProps}>

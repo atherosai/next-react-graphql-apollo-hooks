@@ -24,7 +24,13 @@ const Carousel: React.FunctionComponent = () => {
   ]);
   const [index, setIndex] = useState(0);
 
-  useEffect(() => void setInterval(() => setIndex(state => (state + 1) % items.length), 4000), []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex(state => (state + 1) % items.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return(
     <section className={s.Carousel}>
