@@ -1,7 +1,9 @@
 /* eslint-disable global-require */
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useSpring, useTransition, animated, config } from 'react-spring';
+import {
+  useSpring, useTransition, animated, config,
+} from 'react-spring';
 import {
   faMediumM,
   faFacebook,
@@ -18,25 +20,25 @@ import s from './Carousel.scss';
 
 const Carousel: React.FunctionComponent = () => {
   const [items] = useState([
-    {title: 'GraphQL changed the way we create software', id: 0},
-    {title: 'Learn about GraphQL language for free in the browser', id: 1},
-    {title: 'Learn how to be Lead frontend engineer with GraphQL driven React and Apollo applications', id: 2}
+    { title: 'GraphQL changed the way we create software', id: 0 },
+    { title: 'Learn about GraphQL language for free in the browser', id: 1 },
+    { title: 'Learn how to be Lead frontend engineer with GraphQL driven React and Apollo applications', id: 2 },
   ]);
   const [index, setIndex] = useState(0);
 
   const heightProps = useSpring({
     config: config.slow,
     from: { height: '0px' },
-    to: { height: '700px' }
+    to: { height: '700px' },
   });
   const opacityProps = useSpring({
     config: config.molasses,
     delay: 400,
     from: { opacity: 0 },
-    to: { opacity: 1 }
+    to: { opacity: 1 },
   });
 
-  const fadingTextPropsTransition = useTransition(items[index], item => item.id, {
+  const fadingTextPropsTransition = useTransition(items[index], (item) => item.id, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
@@ -45,13 +47,13 @@ const Carousel: React.FunctionComponent = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex(state => (state + 1) % items.length);
+      setIndex((state) => (state + 1) % items.length);
     }, 4000);
 
     return () => clearInterval(interval);
   }, []);
 
-  return(
+  return (
     <animated.section className={s.Carousel} style={heightProps}>
       <animated.div className={s.Carousel__Wrapper} style={opacityProps}>
         <div className={s.Carousel__Row}>

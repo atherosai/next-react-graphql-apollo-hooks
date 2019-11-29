@@ -18,21 +18,21 @@ import s from './Carousel.scss';
 
 const Carousel: React.FunctionComponent = () => {
   const [items] = useState([
-    {title: 'GraphQL changed the way we create software', key: 0},
-    {title: 'Learn about GraphQL language for free in the browser', key: 1},
-    {title: 'Learn how to be Lead frontend engineer with GraphQL driven React and Apollo applications', key: 2}
+    { title: 'GraphQL changed the way we create software', key: 0 },
+    { title: 'Learn about GraphQL language for free in the browser', key: 1 },
+    { title: 'Learn how to be Lead frontend engineer with GraphQL driven React and Apollo applications', key: 2 },
   ]);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex(state => (state + 1) % items.length);
+      setIndex((state) => (state + 1) % items.length);
     }, 4000);
 
     return () => clearInterval(interval);
   }, []);
 
-  return(
+  return (
     <section className={s.Carousel}>
       <div className={s.Carousel__Wrapper}>
         <div className={s.Carousel__Row}>
@@ -62,13 +62,13 @@ const Carousel: React.FunctionComponent = () => {
               <div style={{ width: '100%', height: '60px' }}>
                 <Transition
                   items={items[index]}
-                  keys={item => item.key}
+                  keys={(item) => item.key}
                   from={{ opacity: 0 }}
                   enter={{ opacity: 1 }}
                   leave={{ opacity: 0 }}
                   config={{ tension: 220, friction: 120 }}
                 >
-                  {item => props => (
+                  {(item) => (props) => (
                     <div style={{ ...props, position: 'absolute' }}>
                       <p
                         style={{
