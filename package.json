@@ -13,7 +13,7 @@
     "build:staging": "NODE_ENV=production CUSTOM_ENV=staging next build && npm run transpile:server",
     "build:local": "NODE_ENV=production CUSTOM_ENV=local next build && npm run transpile:server",
     "gen:schema": "graphql-codegen",
-    "start:staging": "NODE_ENV=production CUSTOM_ENV=production node dist/server/index.js --expose-http2 ",
+    "start:staging": "NODE_ENV=production CUSTOM_ENV=staging node dist/server/index.js --expose-http2 ",
     "start:production": "NODE_ENV=production CUSTOM_ENV=production node dist/server/index.js --expose-http2 ",
     "start:local": "NODE_ENV=production CUSTOM_ENV=local node dist/server/index.js --expose-http2 ",
     "eslint": "eslint . --ignore-path .gitignore",

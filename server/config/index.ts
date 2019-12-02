@@ -1,13 +1,16 @@
 import { config } from 'dotenv';
 import path from 'path';
 
-const DIR = path.resolve(__dirname, '../..');
+const { NODE_ENV, CUSTOM_ENV } = process.env;
+
+const DIR = path.resolve(__dirname, NODE_ENV === 'production' ? '../../..' : '../..');
+
 if (!process.env.CUSTOM_ENV) {
   throw new Error('CUSTOM environment variable is not set');
 }
 
 config({
-  path: `${DIR}/secrets/${process.env.NODE_ENV}-${process.env.CUSTOM_ENV}.env`,
+  path: `${DIR}/secrets/${NODE_ENV}-${CUSTOM_ENV}.env`,
 });
 
 export default {
