@@ -34,7 +34,7 @@ In order to achieve the best performance you should have enabled http/2 and also
 
 ## Environment configuration
 
-The solution for environment variables is built using [dotnev](https://github.com/motdotla/dotenv) library and two environment variables. Well known `NODE_ENV` variable can be set as `development` or `production` and our `CUSTOM_ENV`, which defines the environment. This can be your `staging`, `production`, `local` environment or even your build server. These two variables define the name of `.env` file in `/secrets` folder that will be used. If we would like to for example define the config for our staging environment we would create the file called `/secrets/production-staging.env` and place all the environment variables there. The example for such a file can be for example the following that we can use for development
+The solution for environment variables is built using [dotenv](https://github.com/motdotla/dotenv) library and two environment variables. Well known `NODE_ENV` variable can be set as `development` or `production` and our `CUSTOM_ENV`, which defines the environment. This can be your `staging`, `production`, `local` environment or even your build server. These two variables define the name of `.env` file in `/secrets` folder that will be used. If we would like to for example define the config for our staging environment we would create the file called `/secrets/production-staging.env` and place all the environment variables there. The example for such a file can be for example the following that we can use for development
 
 ```bash
 NODE_ENV=development
