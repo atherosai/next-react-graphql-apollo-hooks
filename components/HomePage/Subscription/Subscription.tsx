@@ -23,7 +23,7 @@ interface HandleSubscribeI {
 }
 
 
-const handleSubsribe: Function = async ({
+const handleSubscribe: Function = async ({
   values,
   subscribeMutation,
   resetForm,
@@ -75,7 +75,7 @@ const Subscription: React.FunctionComponent = () => {
           </h2>
           <Formik
             initialValues={initialValues}
-            onSubmit={async (values, { resetForm }): Promise<SubscribeMutation> => handleSubsribe({
+            onSubmit={async (values, { resetForm }): Promise<SubscribeMutation> => handleSubscribe({
               values,
               subscribeMutation,
               resetForm,
