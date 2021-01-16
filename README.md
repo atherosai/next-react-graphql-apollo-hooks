@@ -2,7 +2,7 @@
 
 The purpose of this starter kit is not to be complete solution, but introduction for creating high performance websites with Next.js, React and GraphQL. We use this repository for new projects at [Atheros Intelligence](https://atheros.ai/) and as the repository for our articles at [GraphQL Mastery](https://atheros.ai/blog)
 
-* Clone the repository with `git clone git@github.com:atherosai/react-next-apollo-graphql.git`
+* Clone the repository with `git clone git@github.com:atherosai/next-react-graphql-apollo-hooks.git`
 * To preserve secure dependencies in `package-lock.json` use `npm ci` to install packages
 
 ## Node.js version
