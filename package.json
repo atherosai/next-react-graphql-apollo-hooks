@@ -47,7 +47,7 @@
     "helmet": "^3.21.2",
     "isomorphic-unfetch": "^3.0.0",
     "lodash.get": "^4.4.2",
-    "next": "^9.1.4",
+    "next": "^9.5.5",
     "next-offline": "^4.0.6",
     "next-seo": "^3.0.0",
     "react": "^16.12.0",
@@ -59,7 +59,7 @@
     "yup": "^0.27.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^1.8.3",
+    "@graphql-codegen/cli": "^1.21.8",
     "@graphql-codegen/typescript-operations": "^1.8.3",
     "@graphql-codegen/typescript-resolvers": "^1.8.3",
     "@next/bundle-analyzer": "^9.1.4",
