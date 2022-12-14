@@ -42,7 +42,7 @@
     "compression": "^1.7.4",
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^1.7.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "formik": "^2.0.4",
     "helmet": "^3.21.2",
     "isomorphic-unfetch": "^3.0.0",
